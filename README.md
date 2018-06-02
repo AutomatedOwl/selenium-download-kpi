@@ -31,9 +31,9 @@ method to get ChromeOptions object which contains your download folder, and pass
 
 The method fileDownloadKPI() receives two parameters:
 
-adamInternetPage.getFileDownloadLink() returns a WebElement object of download link.
+WebElement object: adamInternetPage.getFileDownloadLink() returns a WebElement of download link.
 
-"SpeedTest_16MB.dat" is a String object which describes the file name which intended to be downloaded.
+String object: "SpeedTest_16MB.dat" describes the file name which intended to be downloaded.
 
 The method would perform a download using a default timeout of five minutes, and would also throw an exception in case of unsuccessful download.
 
@@ -65,13 +65,13 @@ The method would act exactly the same as described above, just with a custom dow
 
 The method fileDownloadAssertKPI() receives three parameters:
 
-adamInternetPage.getFileDownloadLink() returns a WebElement object of download link.
+WebElement object: adamInternetPage.getFileDownloadLink() returns WebElement of download link.
 
-"SpeedTest_16MB.dat" is a String object which describes the file name which intended to be downloaded.
+String object: "SpeedTest_16MB.dat" describes the file name which intended to be downloaded.
 
-'5' is the Mbps threshold for the file download. If the download bandwidth would be less than 5Mbps, exception would be thrown.
+Long value '5' is the Mbps threshold for the file download. If the download bandwidth would be less than 5Mbps, exception would be thrown.
 
-It also uses a download timeout of five minutes. 
+It also uses a default download timeout of five minutes. 
 
 ```
     @Test
