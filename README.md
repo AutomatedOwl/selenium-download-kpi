@@ -96,7 +96,7 @@ The method would act exactly the same as described above, just with a custom dow
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadAssertKPI(
                  adamInternetPage.getFileDownloadLink(),
-                 "SpeedTest_16MB.dat", 5, CUSTOM_DOWNLOAD_TIMEOUT);
+                 "SpeedTest_16MB.dat", 5, 60000);
         waitBeforeClosingBrowser();
     }
 ```
