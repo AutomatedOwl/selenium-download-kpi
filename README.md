@@ -25,6 +25,7 @@ After initialization of SeleniumDownloadKPI object, and before initializing your
         ChromeOptions chromeOptions =
                 seleniumDownloadKPI.generateDownloadFolderCapability();
         driver = new ChromeDriver(chromeOptions);
+    }
 ```
 
 ### Example of file download with bandwidth attachment:
@@ -60,6 +61,7 @@ The method would act exactly the same as described above, just with a custom dow
                 adamInternetPage.getFileDownloadLink(),
                 "SpeedTest_16MB.dat", 60000);
         waitBeforeClosingBrowser();
+    }
 ```
 
 ### Example of file download with attachment and assertion:
