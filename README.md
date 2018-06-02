@@ -1,7 +1,7 @@
 # selenium-download-kpi
 
-Selenium extension for Java which provides KPIs of file downloads.
-Currently, the library supports Chromedriver. it would allow you:
+Selenium extension for Java which provides KPIs of file download.
+Currently, the library supports Chromedriver. It would allow you:
 
 * To define your download folder both globally and locally in one code line.
 * Given a file name, web element and timeout, you would be able to download a file and verify succession. 
