@@ -52,7 +52,8 @@ The method would perform a download using a default timeout of five minutes, and
 Another variation of fileDownloadKPI() method.
 The method would act exactly the same as described above, just with a custom download timeout of one minute passed as third argument (in milliseconds).
 
-```
+``` 
+    @Test
     void downloadAttachCustomTimeoutTest() throws InterruptedException {
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadKPI(
