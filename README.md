@@ -10,10 +10,10 @@ Currently, the library supports Chromedriver. it would allow you:
 
 ### Setting up your test
 
-To easily define your download folder, use create a new instance of SeleniumDownloadKPI object, 
-with the download folder supplied as String parameter.
-Then, before initializing your Chromedriver object, use generateDownloadFolderCapability() 
-method to get ChromeOptions object which contains your download folder, and pass it to Chromedriver constructor.
+To easily define your download folder, create a new instance of SeleniumDownloadKPI object, 
+with the download folder path supplied as String parameter.
+
+After initialization of SeleniumDownloadKPI object, and before initializing your Chromedriver object, use generateDownloadFolderCapability() method to get ChromeOptions object which contains your download folder, then pass it to Chromedriver constructor.
 
 ```
     private SeleniumDownloadKPI seleniumDownloadKPI;
