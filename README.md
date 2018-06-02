@@ -110,3 +110,11 @@ The method would act exactly the same as described above, just with a custom dow
 ### Sanpshot of bandwidth logging:
 ![Bandwidth Logging](.github/bandwidth-log.png)
 
+### Maven repository
+```
+<dependency>
+  <groupId>com.github.automatedowl</groupId>
+  <artifactId>selenium-download-kpi</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
