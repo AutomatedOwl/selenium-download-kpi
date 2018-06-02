@@ -50,7 +50,7 @@ The method would perform a download using a default timeout of five minutes, and
 
 ### Example of file download with bandwidth attachment (custom timeout):
 
-Another variation of fileDownloadKPI() method.
+Alternative variation of fileDownloadKPI() method.
 The method would act exactly the same as described above, just with a custom download timeout of one minute passed as third argument (in milliseconds).
 
 ``` 
@@ -89,7 +89,7 @@ It also uses a default download timeout of five minutes.
 
 ### Example of file download with attachment and assertion (custom timeout):
 
-Another variation of fileDownloadAssertKPI() method.
+Alternative variation of fileDownloadAssertKPI() method.
 The method would act exactly the same as described above, just with a custom download timeout of one minute passed as fourth argument (in milliseconds).
 
 ```
