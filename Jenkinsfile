@@ -18,7 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 container('jnlp') {
-                    sh '-Dtest=#downloadAttachTest test'
+                    sh 'mvn -Dtest=#downloadAttachTest test'
                 }
             }
         }
