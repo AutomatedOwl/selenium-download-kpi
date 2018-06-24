@@ -5,6 +5,15 @@ pipeline {
         }
     }
     stages {
+        stage("Prerequisites") {
+            steps {
+                container('jnlp') {
+                    sh """
+                        apk update && apk add curl maven
+                    """
+                }
+            }
+        }
         stage('Git Test') {
             steps {
                 container('jnlp') {
