@@ -9,7 +9,7 @@ pipeline {
             steps {
                 container('jnlp') {
                     sh """
-                        apk update && apk add curl maven
+                        apt-get update && apt-get install maven
                     """
                 }
             }
