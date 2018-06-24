@@ -12,6 +12,9 @@ pipeline {
                         whoami
                     """
                     sh """
+                        sleep 600
+                    """
+                    sh """
                         sudo apt-get -y update && apt-get -y install maven
                     """
                 }
