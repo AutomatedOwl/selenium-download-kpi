@@ -9,7 +9,10 @@ pipeline {
             steps {
                 container('jnlp') {
                     sh """
-                        apt-get -y update && apt-get -y install maven
+                        whoami
+                    """
+                    sh """
+                        sudo apt-get -y update && apt-get -y install maven
                     """
                 }
             }
