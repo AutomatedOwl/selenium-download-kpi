@@ -44,8 +44,8 @@ public class SeleniumDownloadKPI {
     // Define one second polling in milliseconds.
     private final long ONE_SECOND_POLLING = 1000;
 
-    // Define default download timeout of 5 minutes in milliseconds.
-    private final long DEFAULT_DOWNLOAD_TIMEOUT = 360000;
+    // Define default download timeout of 1 minute in milliseconds.
+    private final long DEFAULT_DOWNLOAD_TIMEOUT = 60000;
 
     public SeleniumDownloadKPI(String downloadFolder) {
         this.downloadFolder = downloadFolder;
