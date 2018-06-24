@@ -12,7 +12,7 @@ pipeline {
                         whoami
                     """
                     sh """
-                        sudo apt-get -y update && apt-get -y install maven
+                        apt-get -y update && apt-get -y install maven
                     """
                 }
             }
