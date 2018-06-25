@@ -1,13 +1,13 @@
 pipeline {
     agent {
         kubernetes {
-            label "altered-elk-jenkins-slave"
+            label "qa-tests"
         }
     }
     stages {
         stage("Prerequisites") {
             steps {
-                container('jnlp') {
+                container('automation-slave') {
                     sh """
                         whoami
                     """
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Git Test') {
             steps {
-                container('jnlp') {
+                container('automation-slave') {
                     sh 'pwd'
                     sh 'ls -l'
                     sh 'git status'
@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                container('jnlp') {
+                container('automation-slave') {
                     sh 'mvn -Dtest=#downloadAttachTest test'
                 }
             }
