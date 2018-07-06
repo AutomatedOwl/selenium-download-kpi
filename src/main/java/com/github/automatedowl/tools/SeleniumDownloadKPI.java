@@ -58,8 +58,7 @@ public class SeleniumDownloadKPI {
         double downloadMbps = waitForFileDownload(fileName, DEFAULT_DOWNLOAD_TIMEOUT);
         downloadMbps = adjustDecimals(downloadMbps);
         logBandwidth(fileName, downloadMbps);
-        attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps),
-                getBandwidthMessage(fileName, downloadMbps));
+        attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps));
     }
 
     public void fileDownloadKPI(WebElement element, String fileName, long downloadTimeout)
@@ -68,8 +67,7 @@ public class SeleniumDownloadKPI {
         double downloadMbps = waitForFileDownload(fileName, downloadTimeout);
         downloadMbps = adjustDecimals(downloadMbps);
         logBandwidth(fileName, downloadMbps);
-        attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps),
-                getBandwidthMessage(fileName, downloadMbps));
+        attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps));
     }
 
     public void fileDownloadAssertKPI(WebElement element, String fileName, long mbpsThreshold)
@@ -78,8 +76,7 @@ public class SeleniumDownloadKPI {
         double downloadMbps = waitForFileDownload(fileName, DEFAULT_DOWNLOAD_TIMEOUT);
         downloadMbps = adjustDecimals(downloadMbps);
         logBandwidth(fileName, downloadMbps);
-        attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps),
-                getBandwidthMessage(fileName, downloadMbps));
+        attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps));
         if (downloadMbps < mbpsThreshold) {
             throw new WebDriverException(DOWNLOAD_BANDWIDTH_ERROR
                     .replace("$X", fileName)
@@ -94,8 +91,7 @@ public class SeleniumDownloadKPI {
         double downloadMbps = waitForFileDownload(fileName, downloadTimeout);
         downloadMbps = adjustDecimals(downloadMbps);
         logBandwidth(fileName, downloadMbps);
-        attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps),
-                getBandwidthMessage(fileName, downloadMbps));
+        attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps));
         if (downloadMbps < mbpsThreshold) {
             throw new WebDriverException(DOWNLOAD_BANDWIDTH_ERROR
                     .replace("$X", fileName)
@@ -144,8 +140,7 @@ public class SeleniumDownloadKPI {
 
     /** Attach download bandwidth to Allure report. */
     @Attachment(value = "{0}", type = "text/plain")
-    public static String attachDownloadBandwidth(
-            String attachName, String message) {
+    private static String attachDownloadBandwidth(String message) {
         return message;
     }
 
