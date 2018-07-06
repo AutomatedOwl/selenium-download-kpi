@@ -154,6 +154,8 @@ public class SeleniumDownloadKPI {
         HashMap<String, Object> chromeAdditionalOptions =
                 new HashMap<>();
         chromeAdditionalOptions.put("download.default_directory", downloadFolder);
+        chromeAdditionalOptions.put("download.prompt_for_download", false);
+        chromeAdditionalOptions.put("download.directory_upgrade", true);
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromeAdditionalOptions);
         return options;
