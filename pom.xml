@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.automatedowl</groupId>
     <artifactId>selenium-download-kpi</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Selenium extension for Java which provides KPIs of file downloads.</description>
     <url>https://github.com/AutomatedOwl</url>
