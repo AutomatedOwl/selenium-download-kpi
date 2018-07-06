@@ -97,6 +97,13 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+    <scm>
+        <connection>scm:git:git://github.com/AutomatedOwl/selenium-download-kpi.git</connection>
+        <developerConnection>
+            scm:git:ssh://github.com:AutomatedOwl/selenium-download-kpi.git
+        </developerConnection>
+        <url>https://github.com/AutomatedOwl/selenium-download-kpi</url>
+    </scm>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
