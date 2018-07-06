@@ -16,14 +16,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
  * <ul>
  *     <li> Class that contains methods for download files in Selenium session.
  *          Using Chromedriver, it would allow you:</li>
- *     <ul>
  *         <li>To define your download folder both globally and locally in one code line.</li>
  *         <li>Given a file name, web element and timeout,
  *             you would be able to download a file and verify succession.</li>
  *         <li>Logging the download bandwidth in Mbps and attaching it to Allure report.</li>
  *         <li>Assertion of download bandwidth,
  *             where you define a numeric threshold for passing/failing the test.</li>
- *     </ul>
  * </ul>
  */
 public class SeleniumDownloadKPI {
