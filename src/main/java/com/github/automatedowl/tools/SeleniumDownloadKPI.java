@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 /**
  * <ul>
  *     <li> Class that contains methods for download files in Selenium session.
- *          Using Chromedriver, it would allow you:/li>
+ *          Using Chromedriver, it would allow you:</li>
  *     <ul>
  *         <li>To define your download folder both globally and locally in one code line.</li>
  *         <li>Given a file name, web element and timeout,
