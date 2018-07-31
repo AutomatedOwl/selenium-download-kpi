@@ -4,7 +4,7 @@ Selenium extension for Java which provides KPIs of file download.
 Currently, the library supports Chromedriver. It would allow you:
 
 * To define your download folder both globally and locally in one code line.
-* Given a file name, web element and timeout, you would be able to download a file and verify succession. 
+* Given a file name, web element and timeout, you would be able to download a file and verify its success. 
 * Logging the download bandwidth in Mbps and attaching it to Allure report.
 * Assertion of download bandwidth, where you define a numeric threshold for passing/failing the test.  
 
