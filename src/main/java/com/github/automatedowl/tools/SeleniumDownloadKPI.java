@@ -50,28 +50,28 @@ public class SeleniumDownloadKPI {
         this.downloadPath = Paths.get(downloadFolder);
     }
 
-    public void fileDownloadKPI(WebElement element, String fileName)
+    public void fileDownloadKPI(WebElement element, String fileName, boolean deleteFile)
             throws InterruptedException {
         clickDownloadButton(element);
-        double downloadMbps = waitForFileDownload(fileName, DEFAULT_DOWNLOAD_TIMEOUT);
+        double downloadMbps = waitForFileDownload(fileName, DEFAULT_DOWNLOAD_TIMEOUT, deleteFile);
         downloadMbps = adjustDecimals(downloadMbps);
         logBandwidth(fileName, downloadMbps);
         attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps));
     }
 
-    public void fileDownloadKPI(WebElement element, String fileName, long downloadTimeout)
+    public void fileDownloadKPI(WebElement element, String fileName, long downloadTimeout, boolean deleteFile)
             throws InterruptedException {
         clickDownloadButton(element);
-        double downloadMbps = waitForFileDownload(fileName, downloadTimeout);
+        double downloadMbps = waitForFileDownload(fileName, downloadTimeout, deleteFile);
         downloadMbps = adjustDecimals(downloadMbps);
         logBandwidth(fileName, downloadMbps);
         attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps));
     }
 
-    public void fileDownloadAssertKPI(WebElement element, String fileName, long mbpsThreshold)
+    public void fileDownloadAssertKPI(WebElement element, String fileName, long mbpsThreshold, boolean deleteFile)
             throws InterruptedException {
         clickDownloadButton(element);
-        double downloadMbps = waitForFileDownload(fileName, DEFAULT_DOWNLOAD_TIMEOUT);
+        double downloadMbps = waitForFileDownload(fileName, DEFAULT_DOWNLOAD_TIMEOUT, deleteFile);
         downloadMbps = adjustDecimals(downloadMbps);
         logBandwidth(fileName, downloadMbps);
         attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps));
@@ -83,10 +83,10 @@ public class SeleniumDownloadKPI {
     }
 
     public void fileDownloadAssertKPI(
-            WebElement element, String fileName, long mbpsThreshold, long downloadTimeout)
+            WebElement element, String fileName, long mbpsThreshold, long downloadTimeout, boolean deleteFile)
             throws InterruptedException {
         clickDownloadButton(element);
-        double downloadMbps = waitForFileDownload(fileName, downloadTimeout);
+        double downloadMbps = waitForFileDownload(fileName, downloadTimeout, deleteFile);
         downloadMbps = adjustDecimals(downloadMbps);
         logBandwidth(fileName, downloadMbps);
         attachDownloadBandwidth(getBandwidthMessage(fileName, downloadMbps));
@@ -112,7 +112,7 @@ public class SeleniumDownloadKPI {
      * @param downloadTimeout contain the download timeout in milliseconds.
      * */
     @Step("Waiting for download of {0} to finish")
-    private double waitForFileDownload(String fileName, long downloadTimeout)
+    private double waitForFileDownload(String fileName, long downloadTimeout, boolean deleteFile)
             throws InterruptedException {
         File downloadFile = downloadPath.resolve(fileName).toFile();
         long downloadStartTime = System.currentTimeMillis();
@@ -129,8 +129,12 @@ public class SeleniumDownloadKPI {
 
         // Save file size before deleting.
         long fileSize = downloadFile.length();
-        waitBeforeFileDelete();
-        downloadFile.delete();
+
+        // Check for deletion flag.
+        if (deleteFile) {
+            waitBeforeFileDelete();
+            downloadFile.delete();
+        }
 
         // Return download bandwidth in Mbps.
         return calculateMbps(fileSize, downloadStartTime);

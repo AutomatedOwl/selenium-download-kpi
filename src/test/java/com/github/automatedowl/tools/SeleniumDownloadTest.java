@@ -48,7 +48,7 @@ public class SeleniumDownloadTest {
     void downloadAttachTest() throws InterruptedException {
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadKPI(
-                adamInternetPage.getFileDownloadLink(), "SpeedTest_16MB.dat");
+                adamInternetPage.getFileDownloadLink(), "SpeedTest_16MB.dat", true);
         waitBeforeClosingBrowser();
     }
 
@@ -61,7 +61,7 @@ public class SeleniumDownloadTest {
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadKPI(
                 adamInternetPage.getFileDownloadLink(),
-                "SpeedTest_16MB.dat", CUSTOM_DOWNLOAD_TIMEOUT);
+                "SpeedTest_16MB.dat", CUSTOM_DOWNLOAD_TIMEOUT, true);
         waitBeforeClosingBrowser();
     }
 
@@ -74,7 +74,7 @@ public class SeleniumDownloadTest {
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadAssertKPI(
                 adamInternetPage.getFileDownloadLink(),
-                "SpeedTest_16MB.dat", 5);
+                "SpeedTest_16MB.dat", 5, true);
         waitBeforeClosingBrowser();
     }
 
@@ -88,7 +88,7 @@ public class SeleniumDownloadTest {
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadAssertKPI(
                 adamInternetPage.getFileDownloadLink(),
-                "SpeedTest_16MB.dat", 5, CUSTOM_DOWNLOAD_TIMEOUT);
+                "SpeedTest_16MB.dat", 5, CUSTOM_DOWNLOAD_TIMEOUT, true);
         waitBeforeClosingBrowser();
     }
 

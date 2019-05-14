@@ -30,11 +30,13 @@ After initialization of SeleniumDownloadKPI object, and before initializing your
 
 ### Example of file download with bandwidth attachment:
 
-The method fileDownloadKPI() receives two parameters:
+The method fileDownloadKPI() receives three parameters:
 
 WebElement object: adamInternetPage.getFileDownloadLink() returns a WebElement of download link.
 
 String object: "SpeedTest_16MB.dat" describes the file name which intended to be downloaded.
+
+boolean deleteFile: Indicates whether to delete or keep the file after the download finishes.
 
 The method would perform a download using a default timeout of five minutes, and would also throw an exception in case of unsuccessful download.
 
@@ -43,7 +45,7 @@ The method would perform a download using a default timeout of five minutes, and
     void downloadAttachTest() throws InterruptedException {
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadKPI(
-                adamInternetPage.getFileDownloadLink(), "SpeedTest_16MB.dat");
+                adamInternetPage.getFileDownloadLink(), "SpeedTest_16MB.dat", true);
         waitBeforeClosingBrowser();
     }
 ```
@@ -59,20 +61,22 @@ The method would act exactly the same as described above, just with a custom dow
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadKPI(
                 adamInternetPage.getFileDownloadLink(),
-                "SpeedTest_16MB.dat", 60000);
+                "SpeedTest_16MB.dat", 60000, true);
         waitBeforeClosingBrowser();
     }
 ```
 
 ### Example of file download with attachment and assertion:
 
-The method fileDownloadAssertKPI() receives three parameters:
+The method fileDownloadAssertKPI() receives four parameters:
 
 WebElement object: adamInternetPage.getFileDownloadLink() returns WebElement of download link.
 
 String object: "SpeedTest_16MB.dat" describes the file name which intended to be downloaded.
 
 Long value '5' is the Mbps threshold for the file download. If the download bandwidth would be less than 5Mbps, exception would be thrown.
+
+boolean deleteFile: Indicates whether to delete or keep the file after the download finishes.
 
 It also uses a default download timeout of five minutes. 
 
@@ -82,7 +86,7 @@ It also uses a default download timeout of five minutes.
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadAssertKPI(
                 adamInternetPage.getFileDownloadLink(),
-                "SpeedTest_16MB.dat", 5);
+                "SpeedTest_16MB.dat", 5, true);
         waitBeforeClosingBrowser();
     }
 ```
@@ -98,7 +102,7 @@ The method would act exactly the same as described above, just with a custom dow
         adamInternetPage.navigateToPage(driver);
         seleniumDownloadKPI.fileDownloadAssertKPI(
                  adamInternetPage.getFileDownloadLink(),
-                 "SpeedTest_16MB.dat", 5, 60000);
+                 "SpeedTest_16MB.dat", 5, 60000, true);
         waitBeforeClosingBrowser();
     }
 ```
@@ -117,6 +121,6 @@ The method would act exactly the same as described above, just with a custom dow
 <dependency>
   <groupId>com.github.automatedowl</groupId>
   <artifactId>selenium-download-kpi</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
