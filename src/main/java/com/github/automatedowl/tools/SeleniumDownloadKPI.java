@@ -148,15 +148,34 @@ public class SeleniumDownloadKPI {
 
     /** @return ChromeOptions object that contained default download folder.  */
     public ChromeOptions generateDownloadFolderCapability() {
-        HashMap<String, Object> chromeAdditionalOptions =
-                new HashMap<>();
-        chromeAdditionalOptions.put("download.default_directory", downloadFolder);
-        chromeAdditionalOptions.put("download.prompt_for_download", false);
-        chromeAdditionalOptions.put("download.directory_upgrade", true);
+        HashMap<String, Object> CHROME_ADDITIONAL_OPTIONS = new HashMap<String, Object>() {{
+            put("plugins.plugins_disabled", new String[] {"Chrome PDF Viewer"});
+            put("download.default_directory", downloadFolder);
+            put("profile.default_content_setting_values.automatic_downloads", 1);
+            put("profile.default_content_settings.popups", 0);
+        }};
         ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("prefs", chromeAdditionalOptions);
+        options.setExperimentalOption("prefs", CHROME_ADDITIONAL_OPTIONS);
         return options;
     }
+
+    /** @return ChromeOptions object that contained default download folder.  */
+    public static ChromeOptions generateDownloadFolderCapability(String downloadFolder) {
+        HashMap<String, Object> CHROME_ADDITIONAL_OPTIONS = new HashMap<String, Object>() {{
+            put("plugins.plugins_disabled", new String[] {"Chrome PDF Viewer"});
+            put("download.default_directory", downloadFolder);
+            put("profile.default_content_setting_values.automatic_downloads", 1);
+            put("profile.default_content_settings.popups", 0);
+        }};
+
+        // Add chromedriver arguments.
+        ChromeOptions chromeOptions = new ChromeOptions();
+
+        // Add chrome additional options.
+        chromeOptions.setExperimentalOption("prefs", CHROME_ADDITIONAL_OPTIONS);
+        return chromeOptions;
+    }
+
 
     /** Calculate Mbps value from elapsed time and file size.  */
     private double calculateMbps(long fileSize, long startTime) {
